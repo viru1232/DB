@@ -1,0 +1,22 @@
+SELECT COUNT(*) AS total_employees FROM employees;
+
+SELECT AVG(salary) AS average_salary FROM employees;
+
+SELECT MAX(salary) AS max_salary, MIN(salary) AS min_salary FROM employees;
+
+group by clause
+SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;
+
+
+group by order 
+descending
+SELECT * FROM employees
+ORDER BY salary DESC;
+
+
+asecending
+SELECT department, salary
+FROM employees
+ORDER BY department ASC, salary ASC;
