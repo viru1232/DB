@@ -1,0 +1,11 @@
+-- Employees with salary greater than 55000
+SELECT * FROM Employees
+WHERE Salary > 55000;
+
+-- Employees not in HR department
+SELECT * FROM Employees
+WHERE Department <> 'HR';
+
+-- Employees aged between 25 and 35
+SELECT * FROM Employees
+WHERE Age >= 25 AND Age <= 35;
