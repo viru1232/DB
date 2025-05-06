@@ -1,0 +1,40 @@
+CREATE OR REPLACE PROCEDURE UPDATE_GRADES
+IS
+BEGIN
+    FOR student_rec IN (SELECT STUDENT_ID, MARKS FROM STUDENTS) LOOP
+        IF student_rec.MARKS >= 85 THEN
+            UPDATE STUDENTS SET GRADE = 'A' WHERE STUDENT_ID = student_rec.STUDENT_ID;
+        ELSIF student_rec.MARKS >= 70 THEN
+            UPDATE STUDENTS SET GRADE = 'B' WHERE STUDENT_ID = student_rec.STUDENT_ID;
+        ELSIF student_rec.MARKS >= 50 THEN
+            UPDATE STUDENTS SET GRADE = 'C' WHERE STUDENT_ID = student_rec.STUDENT_ID;
+        ELSE
+            UPDATE STUDENTS SET GRADE = 'F' WHERE STUDENT_ID = student_rec.STUDENT_ID;
+        END IF;
+    END LOOP;
+
+    COMMIT;
+    
+    DBMS_OUTPUT.PUT_LINE('Grades updated successfully.');
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error occurred: ' || SQLERRM);
+END;
+/
+
+
+
+
+
+
+wxecute procedure
+BEGIN
+    UPDATE_GRADES;
+END;
+/
+
+
+
+
+
+SELECT * FROM STUDENTS;
