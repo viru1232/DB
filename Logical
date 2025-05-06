@@ -1,0 +1,32 @@
+logical 
+
+
+-- Get employees from IT department earning more than 70000
+SELECT * FROM employees
+WHERE department = 'IT' AND salary > 70000;
+
+-- Get employees who are either in Finance or live in Boston
+SELECT * FROM employees
+WHERE department = 'Finance' OR city = 'Boston';
+
+-- Get employees not in the IT department
+SELECT * FROM employees
+WHERE NOT department = 'IT';
+
+
+
+
+pattern matching
+
+
+-- Get employees whose name starts with 'A'
+SELECT * FROM employees
+WHERE name LIKE 'A%';
+
+-- Get employees whose name ends with 'n'
+SELECT * FROM employees
+WHERE name LIKE '%n';
+
+-- Get employees whose name has 'o' as the second character
+SELECT * FROM employees
+WHERE name LIKE '_o%';
